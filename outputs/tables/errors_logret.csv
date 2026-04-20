@@ -1,0 +1,13 @@
+model,metro,n,MAE_logret,RMSE_logret
+"ARIMA(1,0,1)","Austin, TX",39,0.00431,0.00512
+"ARIMA(1,0,1)","Cleveland, OH",39,0.00303,0.00372
+"ARIMA(1,0,1)","San Francisco, CA",39,0.005,0.00607
+"MLP(16,8)","Austin, TX",35,0.00501,0.00617
+"MLP(16,8)","Cleveland, OH",25,0.00454,0.00488
+"MLP(16,8)","San Francisco, CA",35,0.00469,0.00626
+OLS,"Austin, TX",35,0.00572,0.00698
+OLS,"Cleveland, OH",25,0.00252,0.00317
+OLS,"San Francisco, CA",35,0.00381,0.00469
+XGBoost,"Austin, TX",35,0.00642,0.00718
+XGBoost,"Cleveland, OH",25,0.00188,0.00222
+XGBoost,"San Francisco, CA",35,0.0043,0.00537
