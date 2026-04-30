@@ -1,13 +1,13 @@
 ,"Austin, TX","Cleveland, OH","San Francisco, CA"
-price_cuts,0.00623,0.00356,0.00199
-log_houst,0.00084,0.0015,0.00168
-acs_median_income,0.00049,0.00085,0.0016
-cpi_yoy,0.0012,0.0007,0.00089
-log_days_pending,0.00082,0.00119,0.00068
-log_new_listings,0.00073,0.00095,0.00055
-d_mortgage30,0.00059,0.00069,0.00094
-acs_vacancy_rate,0.0004,0.00035,0.00025
-stlfsi,0.0003,0.00021,0.00022
-acs_median_home_value,3e-05,0.00012,0.00019
-d_unrate_metro,1e-04,1e-04,8e-05
-"metro_San Francisco, CA",4e-05,5e-05,1e-04
+price_cuts,0.00662,0.00391,0.0018
+"metro_San Francisco, CA",0.00125,0.00122,0.00279
+d_mortgage30,0.00088,0.00084,0.00114
+d_log_days_pending,0.00067,0.0011,0.00086
+d_log_new_listings,0.00063,0.00081,0.00085
+stlfsi,0.00071,0.00053,0.00078
+cpi_yoy,0.00098,0.00053,0.00046
+"metro_Austin, TX",0.00084,0.00046,0.00048
+"metro_Cleveland, OH",0.00038,0.00059,0.00021
+d_unrate_metro,0.00026,0.00021,0.00033
+d_log_houst,0.0002,0.00019,0.00022
+d_unrate_nat,0.00021,0.00018,0.0002

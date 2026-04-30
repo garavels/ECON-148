@@ -1,4 +1,4 @@
-metro,OLS,"ARIMA(1,0,1)",XGBoost,"MLP(16,8)"
-"Austin, TX",2725.0,1996.0,2961.0,2327.0
-"Cleveland, OH",519.0,674.0,398.0,1018.0
-"San Francisco, CA",4470.0,5755.0,4996.0,5028.0
+metro,OLS,ARIMA(AIC),XGBoost,"MLP(16,8)"
+"Austin, TX",2593.0,2479.0,3500.0,2208.0
+"Cleveland, OH",735.0,391.0,561.0,1057.0
+"San Francisco, CA",3933.0,5421.0,4251.0,5271.0
