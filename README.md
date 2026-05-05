@@ -35,9 +35,9 @@ A single chronological split (**train ≤ 2022-12**, **test 2023-01 → latest**
 | ZHVI, new listings, days-to-pending, price cuts | [Zillow Research](https://www.zillow.com/research/data/) | Monthly (metro) | Local housing market dynamics |
 | 30-yr mortgage rate, UNRATE, CPI, housing starts, STLFSI | [FRED](https://fred.stlouisfed.org/) | Weekly / monthly | National macro context |
 | Metro-level unemployment (LAUS, SA) | FRED | Monthly (metro) | Local labor market health |
-| Median income, median home value, vacancy rate | [Census ACS 5-yr 2024](https://www.census.gov/programs-surveys/acs) | Cross-section | Per-metro fixed effects |
+| Median income, median home value, vacancy rate | [Census ACS 5-yr 2024](https://www.census.gov/programs-surveys/acs) | Cross-section | Descriptive metro structure (not in final model) |
 
-Leading indicators are **lagged one month** so the model only uses information available at nowcast time. The 2024 ACS enters as a per-metro structural bias (constant within city), so it cannot leak across the train/test boundary.
+Leading indicators are **lagged one month** so the model only uses information available at nowcast time. ACS variables are loaded as descriptive metro-level structural characteristics, but they are not included in the final model matrix because they are constant within metro and collinear with metro fixed effects.
 
 ## Repository Structure
 
