@@ -1,7 +1,7 @@
 model,metro,n,MAE_logret,RMSE_logret
-ARIMA(AIC),"Austin, TX",39,0.00533,0.00631
-ARIMA(AIC),"Cleveland, OH",39,0.00178,0.00231
-ARIMA(AIC),"San Francisco, CA",39,0.00471,0.0062
+ARIMA(AIC),"Austin, TX",36,0.00518,0.00624
+ARIMA(AIC),"Cleveland, OH",25,0.00226,0.00276
+ARIMA(AIC),"San Francisco, CA",36,0.00497,0.00644
 "MLP(16,8)","Austin, TX",36,0.00488,0.0062
 "MLP(16,8)","Cleveland, OH",25,0.00487,0.00572
 "MLP(16,8)","San Francisco, CA",36,0.00455,0.00561

@@ -1,0 +1,82 @@
+\section{Empirical Strategy}
+\label{sec:method}
+
+
+\subsection{Target Variable}
+
+We model the monthly log return of ZHVI rather than the raw price level or the dollar change:
+
+$$y_t = \ln\!\left(\frac{\text{ZHVI}_t}{\text{ZHVI}_{t-1}}\right)$$
+
+We orient our analysis toward log returns for three main reasons. First, because we estimate OLS and ARIMA models, raw home values exhibiting an upward trend over time would have violated the stationarity requirement of these methods. Log returns instead fluctuate around a stable mean and are more suitable for statistical modeling. Second, log returns put the three cities on a comparable scale (a 0.5\% monthly change represents the same effect in San Francisco and in Cleveland, whereas a \$5{,}000 change does not), which makes them comparable across our three local areas. Third, log returns are the standard unit used in economic research on rates of appreciation. Throughout this paper we use the term ``nowcasting'' in its applied sense in housing economics: predicting the current month's ZHVI return using indicators available at the start of that month, before the official Zillow figure is published.
+
+
+
+\subsection{Feature Engineering}
+
+\subsubsection{Stationarity Transforms}
+
+To satisfy the stationarity requirements of our predictive models, we apply transformations to our raw economic series measured in levels. The transformations applied to each variable before estimation are as follows:
+
+\begin{itemize}
+    \item We first-difference the mortgage rate, the national unemployment rate, and the metro unemployment rate. The reason is that, to analyze housing demand, we need to observe whether rates went up or down; their respective levels are not directly relevant.
+    \item We log-transform new listings, housing starts, and days on market to compress the right tail of their distributions and stabilize variance across the sample.
+    \item We express CPI as a 12-month log change, which is the standard economic definition of the inflation rate.
+    \item The financial stress index and the share of price cuts are already stable, so we keep them as-is.
+\end{itemize}
+
+Figure~\ref{fig:stationary} demonstrates the impact of these transformations on the two selected series.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.68\textwidth]{stationarity.png}
+\caption{Mortgage rate (left) vs. transformed series (right) for mortgage rate and CPI, taking Austin as the selected metropolitan. The first difference takes care of the trend in the mortgage rate; the year-over-year percentage change in the log level transforms the CPI into a stationary inflation rate.}
+\label{fig:stationary}
+\end{figure}
+
+\subsubsection{Lagging Predictor Variables}
+
+To ensure that the model only uses data that was available at the start of the prediction month, we shift the eight leading indicators (the differenced mortgage rate, the two unemployment changes, the three Zillow listing-side variables, the financial-stress index, and the log change in housing starts) back by one month. This eliminates look-ahead bias on those eight series: a change in the mortgage rate in March is treated as affecting buyer behavior in April and beyond, but not in March. Had we used same-month values, our estimates would be biased through data leakage.
+
+CPI year-over-year inflation (\texttt{cpi\_yoy}) is the only feature kept contemporaneous with the prediction month. CPI YoY is a 12-month moving signal and is therefore highly persistent, so the difference between \texttt{cpi\_yoy}\textsubscript{$t$} and \texttt{cpi\_yoy}\textsubscript{$t-1$} is economically negligible; we treat it as the inflation regime indicator at month $t$ rather than as a leading indicator that requires a lag.
+
+\subsubsection{Metro Fixed Effects}
+
+We create three binary indicators (one per city) from the metropolitan area identifiers, allowing each pooled model to use a separate baseline intercept that absorbs time-invariant differences in price level, income, and supply structure across the three metros.
+
+\subsection{Train / Test Split}
+
+We use a single chronological split: observations through December 2022 form the training set, and observations from January 2023 onward form the test set. A chronological split is necessary because a random split would let the model use future observations to predict past ones, producing optimistic, biased performance estimates. We set the split point to December 2022 specifically so that the test period covers the regime immediately following the largest rise in mortgage rates in four decades, ensuring that the training and test periods operate under substantially different macroeconomic conditions.
+
+Figure~\ref{fig:split} gives the complete-case coverage by metro for both training and test datasets.
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.68\textwidth]{split_coverage.png}
+\caption{Complete observation coverage in each metropolitan area. Blue denotes training observations (till December~2022); red denotes test observations (January~2023 onwards). Cleveland contributes fewer complete test observations than San~Francisco or Austin because the extracted Cleveland LAUS metro-unemployment series ends in December~2024, while the Zillow and national FRED series extend through March~2026.}
+\label{fig:split}
+\end{figure}
+
+
+\subsection{Models}
+
+We focus on four predictive models of increasing complexity. All models are evaluated on the same test set.
+
+\textbf{OLS Baseline.} Our first model is a pooled ordinary least squares regression estimated across all three cities simultaneously. Metro fixed effects enter as additive intercept shifts. OLS serves as the linear baseline.
+
+\textbf{ARIMA Baseline.} Our second model is an AIC-selected ARIMA model estimated separately for each city (yielding ARIMA(4,\,0,\,9) for Austin, ARIMA(1,\,0,\,7) for San Francisco, and ARIMA(9,\,0,\,7) for Cleveland). This model only uses the target variable's own history and no external economic data. The role of this model is to answer the question: how much of housing-price movement is just momentum? If this benchmark cannot be beaten by models with exogenous regressors, the additional data sources are adding noise rather than signal.
+
+\textbf{XGBoost.} Our third model is a gradient-boosted tree model. XGBoost builds an ensemble of shallow decision trees sequentially, each one learning from the mistakes of the previous one. This model can capture non-linear associations between variables. We chose hyperparameters conservatively to limit overfitting given the small training sample.
+
+\textbf{MLP.} Our fourth and final model is a small two-layer neural network with 16 and 8 hidden units and ReLU activations. All inputs and the target variable are standardized before training to ensure that the optimizer converges effectively. Strong L2 regularization is applied to prevent the network from extrapolating aggressively to test-period inputs that lie outside the training distribution.
+
+\subsection{Evaluation Metrics}
+
+We use two metrics to evaluate all four models. First, we report the mean absolute error on log returns, which is directly comparable across cities with different price levels. Second, we report a dollar MAE that translates prediction errors into dollars per month:
+
+$$\text{Dollar MAE} = \frac{1}{n}\sum_{t} \text{ZHVI}_{t-1} \cdot
+|\exp(\hat{y}_t) - \exp(y_t)|$$
+
+The dollar MAE makes the economic magnitude of prediction errors concrete and interpretable. We additionally apply SHAP feature attributions to the XGBoost model to understand which variables drive predictions in each city on the test set.
+

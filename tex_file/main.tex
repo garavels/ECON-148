@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+%\documentclass[AER]{AEA}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{float}
+\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt, parsep=0pt}
+\usepackage{fancyhdr}
+\restylefloat{table}
+\usepackage{comment}
+\usepackage{caption}
+\usepackage{graphicx} \usepackage{amsmath,amssymb}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{multirow}
+\setstretch{1.05}
+\title{Local Housing Price Nowcasting}
+\author{Vittorio Garavelli, Camilla Nguyen, Lisa Collier \thanks{University of California, Berkeley, Email: vittorio.garavelli@berkeley.edu, lisa.collier@berkeley.edu, cami@berkeley.edu}}
+
+\begin{document}
+\maketitle
+\vspace{-1.5cm}
+\begin{abstract}
+\noindent We benchmark four standard predictive approaches --- pooled OLS with metro fixed effects, ARIMA, XGBoost, and a small MLP --- on monthly Zillow Home Value Index (ZHVI) returns for three structurally different US metropolitan areas: San Francisco, Austin, and Cleveland. Predictors come from FRED macroeconomic series and Zillow listing-side variables. Models are trained on pre-2023 data and evaluated on a January~2023--March~2026 test set that covers the post-2022 mortgage-rate shock. We document two patterns. First, no single model wins everywhere: OLS is best in San Francisco, MLP is best in Austin, and ARIMA is best in Cleveland. Second, SHAP attribution on the XGBoost model shows that the most important features differ by metro. We read these results as evidence that, in the United States, both model selection and dominant features are geographically contingent.
+\end{abstract}
+
+\pagenumbering{arabic}
+
+\input{Introduction}
+\input{LiteratureReview}
+\input{Data}
+\input{EmpiricalStrategy}
+\input{Results}
+\input{Discussion}
+
+{\footnotesize
+\setstretch{1.0}
+\setlength{\bibsep}{2pt}
+\bibliography{Bibliography}
+\bibliographystyle{plainnat}}
+
+\end{document}

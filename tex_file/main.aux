@@ -1,0 +1,74 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{iacoviello2011}
+\citation{mcgough2020}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{rapach2009forecasting}
+\citation{kholodilin2014business}
+\citation{plakandaras2015forecasting}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{2}{section.2}\protected@file@percent }
+\newlabel{sec:lit}{{2}{2}{Literature Review}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data}{3}{section.3}\protected@file@percent }
+\newlabel{sec:data}{{3}{3}{Data}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Zillow Home Value Index}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}National Macroeconomic Indicators}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Zillow Home Value Index, by metro, January 2000 to March 2026. San Francisco and Austin experience steep price growth and increased volatility compared to Cleveland, whose path is more steady and less volatile.}}{4}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:zhvi}{{1}{4}{Zillow Home Value Index, by metro, January 2000 to March 2026. San Francisco and Austin experience steep price growth and increased volatility compared to Cleveland, whose path is more steady and less volatile}{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Metro-Level Unemployment}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Metro-level unemployment rates (LAUS, seasonally adjusted) versus the national unemployment rate (dashed), January 2000 to March 2026. San Francisco displays greater cyclical movements, whereas Cleveland sustains a steady but higher level of unemployment.}}{4}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:unrate}{{2}{4}{Metro-level unemployment rates (LAUS, seasonally adjusted) versus the national unemployment rate (dashed), January 2000 to March 2026. San Francisco displays greater cyclical movements, whereas Cleveland sustains a steady but higher level of unemployment}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Sample Construction and Cleaning}{5}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}2024 ACS Variables (Descriptive Only)}{5}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Empirical Strategy}{5}{section.4}\protected@file@percent }
+\newlabel{sec:method}{{4}{5}{Empirical Strategy}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Target Variable}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Share of missing observations per variable by year. Dark cells represent complete data; light cells indicate missing values. The Zillow listing-side variables (new listings, days pending, price cuts) are missing before 2018, which determines the effective start of the modeling sample.}}{6}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:missing}{{3}{6}{Share of missing observations per variable by year. Dark cells represent complete data; light cells indicate missing values. The Zillow listing-side variables (new listings, days pending, price cuts) are missing before 2018, which determines the effective start of the modeling sample}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Feature Engineering}{6}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Stationarity Transforms}{6}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Summary statistics by metropolitan area. ZHVI is presented in thousands of US dollars. Log return is the monthly log return of ZHVI. Metro unemployment is the LAUS seasonally-adjusted rate expressed as a percentage. Listing-side variables (new listings, price cuts) pertain to the period beginning in 2018, when Zillow first publishes them. ZHVI and log return cover the full 2000--2026 window (315~observations per metro). The metro unemployment series cover the full window for San~Francisco and Austin (313~observations) and 2000--2024 for Cleveland (300~observations), reflecting the earlier end-date of the Cleveland LAUS pull.}}{7}{table.1}\protected@file@percent }
+\newlabel{tab:summary}{{1}{7}{Summary statistics by metropolitan area. ZHVI is presented in thousands of US dollars. Log return is the monthly log return of ZHVI. Metro unemployment is the LAUS seasonally-adjusted rate expressed as a percentage. Listing-side variables (new listings, price cuts) pertain to the period beginning in 2018, when Zillow first publishes them. ZHVI and log return cover the full 2000--2026 window (315~observations per metro). The metro unemployment series cover the full window for San~Francisco and Austin (313~observations) and 2000--2024 for Cleveland (300~observations), reflecting the earlier end-date of the Cleveland LAUS pull}{table.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Lagging Predictor Variables}{7}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Mortgage rate (left) vs. transformed series (right) for mortgage rate and CPI, taking Austin as the selected metropolitan. The first difference takes care of the trend in the mortgage rate; the year-over-year percentage change in the log level transforms the CPI into a stationary inflation rate.}}{8}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:stationary}{{4}{8}{Mortgage rate (left) vs. transformed series (right) for mortgage rate and CPI, taking Austin as the selected metropolitan. The first difference takes care of the trend in the mortgage rate; the year-over-year percentage change in the log level transforms the CPI into a stationary inflation rate}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Metro Fixed Effects}{8}{subsubsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Train / Test Split}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Models}{8}{subsection.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Complete observation coverage in each metropolitan area. Blue denotes training observations (till December~2022); red denotes test observations (January~2023 onwards). Cleveland contributes fewer complete test observations than San~Francisco or Austin because the extracted Cleveland LAUS metro-unemployment series ends in December~2024, while the Zillow and national FRED series extend through March~2026.}}{9}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:split}{{5}{9}{Complete observation coverage in each metropolitan area. Blue denotes training observations (till December~2022); red denotes test observations (January~2023 onwards). Cleveland contributes fewer complete test observations than San~Francisco or Austin because the extracted Cleveland LAUS metro-unemployment series ends in December~2024, while the Zillow and national FRED series extend through March~2026}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Evaluation Metrics}{9}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{10}{section.5}\protected@file@percent }
+\newlabel{sec:results}{{5}{10}{Results}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Model Comparison}{10}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Dollar MAE by model and metro (USD per month, test period: 2023-01 to 2026-03). Bold indicates the best performance for each metro in the row.}}{10}{table.2}\protected@file@percent }
+\newlabel{tab:dollar_mae}{{2}{10}{Dollar MAE by model and metro (USD per month, test period: 2023-01 to 2026-03). Bold indicates the best performance for each metro in the row}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Dollar MAE for metro areas and models (test period: 2023-01 to 2026-03). The lower bars represent better forecasting performance. Not one model stands out as best in all markets.}}{10}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:maebar}{{6}{10}{Dollar MAE for metro areas and models (test period: 2023-01 to 2026-03). The lower bars represent better forecasting performance. Not one model stands out as best in all markets}{figure.caption.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Mean absolute error on log returns by model and metro (test period: 2023-01 to 2026-03). Bold indicates the best performance for each metro in the row.}}{11}{table.3}\protected@file@percent }
+\newlabel{tab:logmae}{{3}{11}{Mean absolute error on log returns by model and metro (test period: 2023-01 to 2026-03). Bold indicates the best performance for each metro in the row}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Estimated vs. Actual Monthly Log Returns of ZHVI in the Test Period (Jan. 2023 to Mar. 2026). The black line is the actual time series, while the colored lines represent model forecasts.}}{11}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:preds}{{7}{11}{Estimated vs. Actual Monthly Log Returns of ZHVI in the Test Period (Jan. 2023 to Mar. 2026). The black line is the actual time series, while the colored lines represent model forecasts}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}SHAP Feature Importance}{11}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Mean absolute SHAP values by feature and metro (XGBoost, test set). Higher values indicate greater average contribution to the model's prediction.}}{12}{table.4}\protected@file@percent }
+\newlabel{tab:shap}{{4}{12}{Mean absolute SHAP values by feature and metro (XGBoost, test set). Higher values indicate greater average contribution to the model's prediction}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}OLS Regression Table}{12}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Model Interpretability}{12}{subsection.5.4}\protected@file@percent }
+\citation{kholodilin2014business}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Pooled OLS estimates. Dependent variable: monthly log return of ZHVI. ${}^{***}p<0.01$, ${}^{*}p<0.10$.}}{13}{table.5}\protected@file@percent }
+\newlabel{tab:ols}{{5}{13}{Pooled OLS estimates. Dependent variable: monthly log return of ZHVI. ${}^{***}p<0.01$, ${}^{*}p<0.10$}{table.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{13}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Limitations}{14}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Policy Implications}{14}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{14}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}AI Usage Disclosure}{14}{section.8}\protected@file@percent }
+\bibdata{Bibliography}
+\bibcite{iacoviello2011}{{1}{2011}{{Iacoviello}}{{}}}
+\bibcite{kholodilin2014business}{{2}{2014}{{Kholodilin and Siliverstovs}}{{}}}
+\bibcite{mcgough2020}{{3}{2020}{{McGough et~al.}}{{McGough, Johansson, Lipsitch, and Menzies}}}
+\bibcite{plakandaras2015forecasting}{{4}{2015}{{Plakandaras et~al.}}{{Plakandaras, Gupta, Gogas, and Papadimitriou}}}
+\bibcite{rapach2009forecasting}{{5}{2009}{{Rapach and Strauss}}{{}}}
+\bibstyle{plainnat}
+\gdef \@abspage@last{15}

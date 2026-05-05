@@ -1,0 +1,24 @@
+\section{Discussion}
+
+While the goal of our paper was not to reproduce the findings of any paper mentioned in the Literature Review, our results follow the same patterns. In particular, our findings echo the core result of \citet{kholodilin2014business}, who document that no single \emph{predictor} dominates across all German cities; we observe an analogous pattern for \emph{model architectures}, with no single nowcasting model outperforming the others across all three metros. Instead, each model outperforms the others in a specific geographical area. We therefore argue that the optimal model type depends on the structural and macroeconomic characteristics under which a local housing market operates. Our choice of metropolitan areas was specifically designed to highlight this aspect and constitutes a core strength of our research.
+
+\subsection{Limitations}
+Several limitations constrain our findings. First, the missingness of the Zillow listing-side variables before 2018 reduces the usable training window, leaving us with only 186 complete observations for three of the four models. This small sample raises overfitting risk for XGBoost and MLP; we mitigate this with conservative hyperparameters (shallow trees and heavy L2 regularization), but a longer historical record would allow these models to better exploit their capacity. Second, we estimate the ARIMA models once on the training series and produce predictions for the full test period without updating; a rolling re-estimation scheme would more accurately reproduce real-time conditions and would likely improve ARIMA performance.
+
+\subsection{Policy Implications}
+Despite these limitations, our findings offer practical implications for real-time housing market analysis. In particular, the strong performance of listing-side data across all three cities suggests that publicly available Zillow indicators can significantly improve price nowcasting. Additionally, for policy purposes, our research suggests that locally calibrated nowcasting models will outperform any attempt at a universal model.
+
+\section{Conclusion}
+In conclusion, this paper contributes to a growing literature on housing market nowcasting by demonstrating that model selection and feature importance are geographically contingent rather than universal. Drawing on past research, our paper extends prior findings along two dimensions. First, it develops the framework at the metropolitan level using real-time listing-side data. Second, it applies SHAP feature attribution to quantify precisely which variables drive each model's performance in each local market. Future work could extend this framework by incorporating higher-frequency data, applying rolling re-estimation to the ARIMA baseline, or expanding the metro sample to test whether the geographic heterogeneity we document generalizes beyond our three chosen markets.
+
+\section{AI Usage Disclosure}
+
+In compliance with course policy, we disclose how artificial intelligence was used during this project.
+
+\textbf{Tools.} We used Anthropic's Claude (Opus 4.6 Max and Opus 4.7 Max) as a coding assistant, accessed through the Claude Code command-line interface (\href{https://github.com/anthropics/claude-code}{github.com/anthropics/claude-code}). No other LLMs were used.
+
+\textbf{Tasks.} The model was used in support of code quality, not in framing the research question or drawing economic conclusions. Concretely, we used it to brainstorm potential weaknesses in our design (look-ahead bias, sample-size constraints, residual autocorrelation); to review notebook cells for logic errors and incorrect API use (pandas, statsmodels, scikit-learn, XGBoost); to rewrite verbose code into shorter idiomatic forms; to enforce a consistent visual style across all figures; and to parameterize the train/test boundary and seed (\texttt{SEED = 0}) for reproducibility.
+
+\textbf{Skills and agents.} We invoked reusable prompts and review agents from two open-source collections of \texttt{skill.md} and \texttt{agent.md} files: the Everything Claude Code plugin (\href{https://github.com/affaan-m/everything-claude-code}{github.com/affaan-m/everything-claude-code}) and Scientific Agent Skills (\href{https://github.com/K-Dense-AI/scientific-agent-skills}{github.com/K-Dense-AI/scientific-agent-skills}). No agent had autonomous authority; every suggested change was reviewed manually.
+
+\textbf{Verification.} We treated AI output as proposals: every suggested edit was read line by line, the notebook was re-run end-to-end after each substantive change, and all numerical results were inspected for plausibility against the simple baselines.
