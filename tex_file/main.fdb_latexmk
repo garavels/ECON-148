@@ -1,13 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1778022443.27565 "main.aux" "main.bbl" "main" 1778022444.58331 0
+["bibtex main"] 1778022443.27565 "main.aux" "main.bbl" "main" 1778027166.22197 0
   "./Bibliography.bib" 1778018770.11128 1968 e97f675abfd4494286b14e7ef22e079b ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1778022444.36054 12386 182205db5a7a2de4fd14d7488e196b9b "pdflatex"
+  "main.aux" 1778027165.85707 12386 182205db5a7a2de4fd14d7488e196b9b "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1778022443.36105 "main.tex" "main.pdf" "main" 1778022444.58344 0
+["pdflatex"] 1778027164.25705 "/Users/vittoriogaravelli/GitHub/GitHub/ECON-148/tex_file/main.tex" "main.pdf" "main" 1778027166.22211 0
+  "/Users/vittoriogaravelli/GitHub/GitHub/ECON-148/tex_file/main.tex" 1778022438.49927 1953 b3345b7fffe7e2dd383236c875b0dcee ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcbx1200.tfm" 1136768653 1536 c09172c8f235393e6235bb4758357c41 ""
@@ -51,6 +52,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
@@ -135,11 +137,11 @@
   "EmpiricalStrategy.tex" 1778022384.78389 7632 3e93c9c526024f8b1dfc42b868bfbc8b ""
   "Introduction.tex" 1778020029.86653 2209 c329ec6c985e60a06363dcd668d89c59 ""
   "LiteratureReview.tex" 1778018865.88159 3009 4dcf7eebc68fc02777ca1ec496d95482 ""
-  "Results.tex" 1778022422.54348 9318 d3cf38f288057efdfd8ee297610aa2c5 ""
+  "Results.tex" 1778027163.94802 9657 56f25d7a88b92e124653d9f62b70328c ""
   "mae_dollars_bar.png" 1778031930 46106 b71b7fbbee4aa4769eb50a0ca1fbd6c8 ""
-  "main.aux" 1778022444.36054 12386 182205db5a7a2de4fd14d7488e196b9b "pdflatex"
+  "main.aux" 1778027165.85707 12386 182205db5a7a2de4fd14d7488e196b9b "pdflatex"
   "main.bbl" 1778022443.35913 1777 d2783930b2d836faf85f6c339bc0241d "bibtex main"
-  "main.out" 1778022444.36142 4096 c704f021ef316e4a6d56ead4df660405 "pdflatex"
+  "main.out" 1778027165.85816 4096 c704f021ef316e4a6d56ead4df660405 "pdflatex"
   "main.tex" 1778022438.49927 1953 b3345b7fffe7e2dd383236c875b0dcee ""
   "missingness.png" 1778031930 62583 ba7d791cfd8191283d3c1799005c0f92 ""
   "predictions_vs_actual.png" 1778031930 370307 cc178dbcb61857b18580dc09f73666e7 ""
